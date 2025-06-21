@@ -1,0 +1,15 @@
+{% extends "admin/delete_confirmation.html" %}
+{% block content %}
+<div class="delete-confirmation">
+    <h2>Are you sure?</h2>
+    <p>You're about to delete the pricing configuration "{{ object.name }}". This action cannot be undone.</p>
+    <p>All related pricing rules will also be deleted.</p>
+    
+    <form method="post">{% csrf_token %}
+        <div class="submit-row">
+            <input type="submit" value="Yes, I'm sure" class="default" style="background-color: #ba2121">
+            <a href="{% url 'admin:pricing_pricingconfig_changelist' %}" class="button">No, take me back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
